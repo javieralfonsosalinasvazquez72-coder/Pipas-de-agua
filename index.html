@@ -107,8 +107,67 @@ section{padding:95px 8%}
 .contact h2{font-size:42px;margin-bottom:12px}
 .contact p{color:#c8e2ed;margin-bottom:30px}
 .contact-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
-.whatsapp{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#16c784;color:white;display:flex;align-items:center;justify-content:center;font-size:29px;z-index:2000;box-shadow:0 8px 25px rgba(0,0,0,.25);transition:.3s}
-.whatsapp:hover{transform:scale(1.08)}
+.contact-float{
+position:fixed;
+right:22px;
+bottom:22px;
+z-index:2000;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.contact-options{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:10px;
+opacity:0;
+transform:translateY(15px);
+pointer-events:none;
+transition:.25s ease;
+}
+
+.contact-float.active .contact-options{
+opacity:1;
+transform:translateY(0);
+pointer-events:auto;
+}
+
+.contact-option,
+.contact-toggle{
+width:62px;
+height:62px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+text-decoration:none;
+border:0;
+cursor:pointer;
+box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.call-option{
+background:#087db8;
+color:white;
+}
+
+.whatsapp-option{
+background:#16c784;
+color:white;
+}
+
+.contact-toggle{
+background:#16c784;
+color:white;
+transition:.3s;
+}
+
+.contact-toggle:hover{
+transform:scale(1.08);
+}
 footer{background:#022c43;color:#b8d3df;text-align:center;padding:28px 20px;font-size:14px}
 
 @media(max-width:900px){
@@ -384,7 +443,7 @@ Puedes colocar cualquier cantidad. Por ejemplo, si tienes varios tambos, tinacos
 <h2>¿Necesitas agua?</h2>
 <p>Contáctanos para conocer disponibilidad y solicitar tu servicio.</p>
 <div class="contact-buttons">
-<a href="https://wa.me/5572261844" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
+<a href="https://wa.me/525572261844" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
 <a href="tel:+525572261844" class="btn btn-secondary">📞 Llamar</a>
 </div>
 </section>
@@ -395,7 +454,32 @@ Puedes colocar cualquier cantidad. Por ejemplo, si tienes varios tambos, tinacos
 Chimalhuacán · Nezahualcóyotl · Iztacalco · Los Reyes · San Vicente Chicoloapan
 </footer>
 
-<a href="https://wa.me/525572261844" target="_blank" class="whatsapp" aria-label="Contactar por WhatsApp">💬</a>
+<div class="contact-float">
+
+    <div class="contact-options">
+
+        <a href="tel:+525572261844"
+           class="contact-option call-option"
+           aria-label="Llamar">
+            📞
+        </a>
+
+        <a href="https://wa.me/525572261844"
+           target="_blank"
+           class="contact-option whatsapp-option"
+           aria-label="Abrir WhatsApp">
+            💬
+        </a>
+
+    </div>
+
+    <button class="contact-toggle"
+            id="contactToggle"
+            aria-label="Abrir opciones de contacto">
+        💬
+    </button>
+
+</div>
 
 <script>
 const telefono = "5572261844";
@@ -572,6 +656,13 @@ document.getElementById("quoteForm").addEventListener("submit", function(event) 
 
     const url = "https://wa.me/" + 5572261844 + "?text=" + texto;
     window.open(url, "_blank");
+});
+
+    const contactToggle = document.getElementById("contactToggle");
+const contactFloat = document.querySelector(".contact-float");
+
+contactToggle.addEventListener("click", function() {
+    contactFloat.classList.toggle("active");
 });
 </script>
 
