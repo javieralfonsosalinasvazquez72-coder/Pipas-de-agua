@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Suministro y transporte de agua en pipas para hogares, purificadoras, empresas, hoteles, lavanderías y obras en Chimalhuacán, Nezahualcóyotl, Iztacalco y zonas cercanas.">
+<title>Suministro y Transporte de Agua en Pipas</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5f9fc;color:#15354d;line-height:1.6}
+a{text-decoration:none}
+img{max-width:100%;display:block}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);box-shadow:0 3px 20px rgba(0,0,0,.08)}
+nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 25px}
+.logo{font-size:22px;font-weight:800;color:#087db8}.logo span{color:#13b7df}
+nav ul{display:flex;gap:25px;list-style:none}
+nav ul a{color:#173b54;font-weight:600;transition:.3s}
+nav ul a:hover{color:#0794ce}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 8% 80px;color:white;background:linear-gradient(90deg,rgba(2,43,68,.88),rgba(3,95,135,.42)),url("imagenes/pipa-atardecer.jpeg");background-size:cover;background-position:center}
+.hero-content{max-width:760px}
+.hero-small{font-size:16px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#65dcff;margin-bottom:15px}
+.hero h1{font-size:clamp(42px,7vw,75px);line-height:1.03;margin-bottom:25px}
+.hero h1 span{color:#5edfff}
+.hero p{max-width:650px;font-size:20px;color:#e9f7fc;margin-bottom:35px}
+.buttons{display:flex;gap:15px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 25px;border-radius:50px;font-weight:bold;transition:.3s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:#16c784;color:white;box-shadow:0 8px 20px rgba(22,199,132,.25)}
+.btn-secondary{background:white;color:#087db8}
+
+section{padding:95px 8%}
+.section-title{max-width:750px;margin:0 auto 55px;text-align:center}
+.section-title h2{font-size:40px;margin-bottom:12px}
+.section-title p{color:#647b8c;font-size:17px}
+
+.water-section{background:white}
+.water-content{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.water-image img{width:100%;height:430px;object-fit:cover;border-radius:25px;box-shadow:0 15px 40px rgba(0,0,0,.12)}
+.water-text h2{font-size:38px;margin-bottom:20px}
+.water-text p{color:#607687;margin-bottom:18px}
+.water-features{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:25px}
+.feature{padding:18px;background:#eef9fd;border-radius:14px;font-weight:bold;color:#17617e}
+
+.clients{background:#f5faff}
+.client-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.client-card{background:white;padding:30px 20px;text-align:center;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,.06);transition:.3s}
+.client-card:hover{transform:translateY(-7px)}
+.client-icon{font-size:42px;margin-bottom:12px}
+
+.coverage{background:#063d5d;color:white;text-align:center}
+.coverage .section-title p{color:#c7e2ee}
+.coverage-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.zone{padding:20px;border-radius:15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-weight:bold;font-size:18px}
+.zone span{color:#62dcff;margin-right:8px}
+
+.capacity{background:white;text-align:center}
+.capacity-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.capacity-card{padding:40px 25px;border-radius:20px;background:#f4faff;border:1px solid #e1edf3;transition:.3s}
+.capacity-card:hover{transform:translateY(-7px)}
+.capacity-number{font-size:42px;font-weight:800;color:#087db8;margin-bottom:8px}
+.capacity-card p{color:#657c8c}
+.capacity-note{max-width:650px;margin:30px auto 0;font-size:14px;color:#718694}
+
+.prices{background:#eaf7fc}
+.price-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+.price-card{background:white;border-radius:22px;padding:40px;text-align:center;box-shadow:0 12px 35px rgba(0,0,0,.07);transition:.3s}
+.price-card:hover{transform:translateY(-6px)}
+.price-location{font-size:22px;font-weight:bold;margin-bottom:12px}
+.price{font-size:50px;font-weight:800;color:#087db8}
+.price-description{color:#718594}
+.special-price{max-width:900px;margin:30px auto 0;padding:25px;border-radius:18px;background:white;text-align:center;border:1px dashed #79c9e7}
+.special-price strong{color:#087db8}
+
+.business-services{background:white}
+.business-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.business-card{padding:40px;border-radius:22px;background:#f4faff;border:1px solid #dfedf4}
+.business-card h3{font-size:27px;margin-bottom:15px}
+.business-card p{color:#637b8c;margin-bottom:20px}
+.business-card ul{padding-left:20px;color:#526d7e}
+.business-card li{margin-bottom:8px}
+
+.gallery{background:#f4f9fc}
+.gallery-grid{max-width:1150px;margin:auto;display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+.gallery-item{position:relative;overflow:hidden;border-radius:20px;min-height:280px}
+.gallery-item:first-child{grid-row:span 2;min-height:580px}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gallery-item:hover img{transform:scale(1.025)}
+.gallery-caption{position:absolute;left:0;right:0;bottom:0;padding:25px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:bold}
+
+.quote{background:#eaf7fc}
+.quote-box{max-width:780px;margin:auto;background:white;padding:40px;border-radius:25px;box-shadow:0 12px 35px rgba(0,0,0,.08)}
+.quote-box h3{text-align:center;font-size:28px;margin-bottom:25px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;margin-bottom:7px;font-weight:bold}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px;border:1px solid #d6e4eb;border-radius:10px;font-family:inherit;font-size:15px;outline:none;background:white}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#1aa6d5}
+.service-info{display:none;margin-top:20px;padding:18px;border-radius:14px;background:#eef9fd;border-left:4px solid #16a9d4;color:#365d70}
+.service-info strong{color:#087db8}
+.price-preview{display:none;margin-top:20px;padding:20px;border-radius:16px;background:#f2fbf6;border:1px solid #bfe8d4}
+.price-preview .total{font-size:30px;font-weight:800;color:#087db8}
+.quote-button{width:100%;font-size:16px;margin-top:10px}
+
+.contact{background:#063d5d;color:white;text-align:center}
+.contact h2{font-size:42px;margin-bottom:12px}
+.contact p{color:#c8e2ed;margin-bottom:30px}
+.contact-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.whatsapp{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#16c784;color:white;display:flex;align-items:center;justify-content:center;font-size:29px;z-index:2000;box-shadow:0 8px 25px rgba(0,0,0,.25);transition:.3s}
+.whatsapp:hover{transform:scale(1.08)}
+footer{background:#022c43;color:#b8d3df;text-align:center;padding:28px 20px;font-size:14px}
+
+@media(max-width:900px){
+nav ul{display:none}
+.client-grid{grid-template-columns:repeat(2,1fr)}
+.water-content,.business-grid{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr}
+.gallery-item:first-child{grid-row:auto;min-height:420px}
+.gallery-item{min-height:280px}
+}
+@media(max-width:600px){
+section{padding:70px 20px}
+.hero{padding:120px 25px 70px;text-align:center;background-position:center}
+.hero h1{font-size:45px}
+.hero p{font-size:17px}
+.buttons{justify-content:center}
+.section-title h2{font-size:31px}
+.water-features{grid-template-columns:1fr}
+.client-grid,.coverage-grid,.capacity-grid,.price-grid{grid-template-columns:1fr}
+.quote-box{padding:25px 20px}
+.contact h2{font-size:32px}
+.gallery-item:first-child{min-height:330px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">💧 AGUA<span> EXPRESS</span></div>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#servicio">Servicio</a></li>
+<li><a href="#cobertura">Cobertura</a></li>
+<li><a href="#precios">Precios</a></li>
+<li><a href="#cotizacion">Cotiza</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero" id="inicio">
+<div class="hero-content">
+<div class="hero-small">Suministro y transporte de agua</div>
+<h1>Agua de suministro, <span>directo hasta donde la necesitas.</span></h1>
+<p>Servicio de transporte de agua en pipas para hogares, empresas, purificadoras, hoteles, lavanderías, edificios y obras.</p>
+<div class="buttons">
+<a href="#cotizacion" class="btn btn-primary">💧 Solicitar servicio</a>
+<a href="#precios" class="btn btn-secondary">Ver precios</a>
+</div>
+</div>
+</section>
+
+<section class="water-section" id="servicio">
+<div class="water-content">
+<div class="water-image">
+<img src="imagenes/pipa-edificio.jpeg" alt="Pipa realizando suministro de agua en un edificio">
+</div>
+<div class="water-text">
+<h2>Suministro de agua de pozo profundo</h2>
+<p>Nuestro suministro proviene de un pozo profundo perteneciente a <strong>Industrias Agropecuarias El Vergel, S.A.</strong>, desde donde el agua es extraída para su posterior transporte en pipa.</p>
+<p>El agua se caracteriza por ser ligera y de baja mineralización. El suministro se realiza sin proceso de cloración previo a su transporte.</p>
+<p>Para el suministro destinado a purificadoras, el agua es transportada hasta sus instalaciones, donde se realizan los procesos correspondientes antes de su comercialización al consumidor.</p>
+<div class="water-features">
+<div class="feature">💧 Pozo profundo</div>
+<div class="feature">🚛 Transporte en pipa</div>
+<div class="feature">💎 Baja mineralización</div>
+<div class="feature">📍 Servicio local</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="clients">
+<div class="section-title">
+<h2>¿A quién abastecemos?</h2>
+<p>Soluciones de suministro para diferentes necesidades y tipos de clientes.</p>
+</div>
+<div class="client-grid">
+<div class="client-card"><div class="client-icon">🏠</div><h3>Casa habitación</h3></div>
+<div class="client-card"><div class="client-icon">💧</div><h3>Purificadoras</h3></div>
+<div class="client-card"><div class="client-icon">🧼</div><h3>Lavanderías</h3></div>
+<div class="client-card"><div class="client-icon">🏨</div><h3>Hoteles</h3></div>
+<div class="client-card"><div class="client-icon">🏗️</div><h3>Obras</h3></div>
+<div class="client-card"><div class="client-icon">🏢</div><h3>Edificios</h3></div>
+<div class="client-card"><div class="client-icon">🏭</div><h3>Empresas</h3></div>
+<div class="client-card"><div class="client-icon">🚛</div><h3>Suministro recurrente</h3></div>
+</div>
+</section>
+
+<section class="coverage" id="cobertura">
+<div class="section-title">
+<h2>Zonas de cobertura</h2>
+<p>Atendemos diferentes zonas de la región y áreas cercanas.</p>
+</div>
+<div class="coverage-grid">
+<div class="zone"><span>📍</span>Chimalhuacán</div>
+<div class="zone"><span>📍</span>Nezahualcóyotl</div>
+<div class="zone"><span>📍</span>Iztacalco, CDMX</div>
+<div class="zone"><span>📍</span>Parte de Los Reyes</div>
+<div class="zone"><span>📍</span>San Vicente Chicoloapan</div>
+<div class="zone"><span>🚛</span>Consulta disponibilidad</div>
+</div>
+</section>
+
+<section class="capacity">
+<div class="section-title">
+<h2>Capacidad de suministro</h2>
+<p>Diferentes capacidades para adaptarnos a las necesidades de cada servicio.</p>
+</div>
+<div class="capacity-grid">
+<div class="capacity-card"><div class="capacity-number">10,000 L</div><p>Pipa para servicios habituales.</p></div>
+<div class="capacity-card"><div class="capacity-number">12,000 L</div><p>Mayor capacidad para pedidos de mayor volumen.</p></div>
+<div class="capacity-card"><div class="capacity-number">20,000 L</div><p>Disponible mediante unidades asociadas y sujeto a disponibilidad.</p></div>
+</div>
+<div class="capacity-note">La disponibilidad de unidades puede variar dependiendo de la fecha y características del servicio.</div>
+</section>
+
+<section class="prices" id="precios">
+<div class="section-title">
+<h2>Precios de servicio</h2>
+<p>Tarifas base para suministro de 1,000 litros.</p>
+</div>
+<div class="price-grid">
+<div class="price-card"><div class="price-location">📍 Chimalhuacán</div><div class="price">$230</div><div class="price-description">por 1,000 litros</div></div>
+<div class="price-card"><div class="price-location">📍 Nezahualcóyotl</div><div class="price">$300</div><div class="price-description">por 1,000 litros</div></div>
+</div>
+<div class="special-price">
+<strong>💧 Tarifas aproximadas por volumen</strong><br>
+En Chimalhuacán, la pipa completa de 10,000 litros es de aproximadamente <strong>$2,000</strong> y la de 12,000 litros de aproximadamente <strong>$2,200</strong>.<br>
+En Nezahualcóyotl, la pipa completa de 10,000 litros es de aproximadamente <strong>$2,700</strong>.<br><br>
+<strong>📐 ¿Necesitas una cantidad diferente?</strong><br>
+Puedes indicar exactamente cuántos litros necesitas —por ejemplo, 3,700 litros sumando varios tambos, tinacos o una cisterna— y el sistema calculará una referencia de acuerdo con la tarifa por 1,000 litros.<br><br>
+<strong>⚠️ Importante:</strong> las tarifas son aproximadas. Condiciones como utilizar motobomba para subir el agua a una azotea o realizar ciertas descargas pueden aumentar el costo aproximadamente entre $20 y $30 por cada 1,000 litros. El precio final se confirma según la ubicación y las condiciones de entrega.
+</div>
+</section>
+
+<section class="business-services">
+<div class="section-title">
+<h2>Servicios especiales</h2>
+<p>Opciones para clientes que requieren suministro recurrente o de mayor volumen.</p>
+</div>
+<div class="business-grid">
+<div class="business-card">
+<h3>💧 Purificadoras</h3>
+<p>Contamos con precios especiales para purificadoras que requieren suministro de agua de manera recurrente.</p>
+<ul>
+<li>Precio especial por volumen.</li>
+<li>Consideramos la ubicación.</li>
+<li>Tomamos en cuenta la frecuencia de pedidos.</li>
+<li>Posibilidad de mejorar condiciones con compras recurrentes.</li>
+<li>Atención directa para nuevos clientes.</li>
+</ul>
+</div>
+<div class="business-card">
+<h3>🏗️ Obras y desabasto</h3>
+<p>Contamos con opciones de suministro para obras, empresas y situaciones de desabasto de agua.</p>
+<ul>
+<li>Servicios recurrentes.</li>
+<li>Suministro programado.</li>
+<li>Posibilidad de renta de unidades mediante acuerdo directo.</li>
+<li>Cotización de acuerdo con consumo, ubicación y logística.</li>
+<li>Disponibilidad de unidades sujeta a programación.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="gallery">
+<div class="section-title">
+<h2>Nuestras unidades en servicio</h2>
+<p>Parte de nuestro trabajo diario llevando el suministro hasta nuestros clientes.</p>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item">
+<img src="imagenes/pipa-atardecer.jpeg" alt="Pipa de agua al atardecer">
+<div class="gallery-caption">Suministro y transporte de agua</div>
+</div>
+<div class="gallery-item">
+<img src="imagenes/pipa-edificio.jpeg" alt="Pipa suministrando agua en el estacionamiento de un edificio">
+<div class="gallery-caption">Servicio en edificio</div>
+</div>
+<div class="gallery-item">
+<img src="imagenes/pipa-1.jpeg" alt="Pipa de agua en servicio">
+<div class="gallery-caption">Unidades en operación</div>
+</div>
+</div>
+</section>
+
+<section class="quote" id="cotizacion">
+<div class="section-title">
+<h2>Solicita tu servicio</h2>
+<p>Selecciona para qué necesitas el agua y te mostraremos la información que corresponde a tu servicio.</p>
+</div>
+
+<div class="quote-box">
+<h3>Cotiza por WhatsApp</h3>
+
+<form id="quoteForm">
+
+<div class="form-group">
+<label for="nombre">Nombre</label>
+<input type="text" id="nombre" placeholder="Tu nombre" required>
+</div>
+
+<div class="form-group">
+<label for="zona">¿Dónde necesitas el agua?</label>
+<select id="zona" required>
+<option value="">Selecciona una zona</option>
+<option value="Chimalhuacán">Chimalhuacán</option>
+<option value="Nezahualcóyotl">Nezahualcóyotl</option>
+<option value="Iztacalco, CDMX">Iztacalco, CDMX</option>
+<option value="Los Reyes">Parte de Los Reyes</option>
+<option value="San Vicente Chicoloapan">San Vicente Chicoloapan</option>
+<option value="Otra zona">Otra zona</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="tipo">¿Para qué necesitas el agua?</label>
+<select id="tipo" required>
+<option value="">Selecciona una opción</option>
+<option value="Casa habitación">Casa habitación</option>
+<option value="Purificadora">Purificadora</option>
+<option value="Lavandería">Lavandería</option>
+<option value="Hotel">Hotel</option>
+<option value="Empresa">Empresa</option>
+<option value="Obra / construcción">Obra / construcción</option>
+<option value="Desabasto de agua">Desabasto de agua</option>
+<option value="Edificio / departamentos">Edificio / departamentos</option>
+<option value="Otro">Otro</option>
+</select>
+</div>
+
+<div id="serviceInfo" class="service-info"></div>
+
+<div class="form-group">
+<label for="litros">¿Cuántos litros necesitas?</label>
+<input type="number" id="litros" min="1" step="1" inputmode="numeric" placeholder="Ej. 3,700" required>
+<small style="display:block;margin-top:7px;color:#718694;">
+Puedes colocar cualquier cantidad. Por ejemplo, si tienes varios tambos, tinacos o una cisterna y juntos necesitas 3,700 litros, escribe <strong>3700</strong>.
+</small>
+</div>
+
+<div id="pricePreview" class="price-preview"></div>
+
+<div class="form-group">
+<label for="frecuencia">¿Con qué frecuencia necesitas el servicio?</label>
+<select id="frecuencia">
+<option>Servicio único</option>
+<option>Varias veces por semana</option>
+<option>Una vez por semana</option>
+<option>Servicio recurrente</option>
+<option>No estoy seguro</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="mensaje">Información adicional</label>
+<textarea id="mensaje" rows="4" placeholder="Por ejemplo: dirección aproximada, facilidad de acceso, cisterna/tinaco, horario preferido, etc."></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary quote-button">
+💬 Enviar solicitud por WhatsApp
+</button>
+
+</form>
+</div>
+</section>
+
+<section class="contact" id="contacto">
+<h2>¿Necesitas agua?</h2>
+<p>Contáctanos para conocer disponibilidad y solicitar tu servicio.</p>
+<div class="contact-buttons">
+<a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary">💬 WhatsApp</a>
+<a href="tel:+52XXXXXXXXXX" class="btn btn-secondary">📞 Llamar</a>
+</div>
+</section>
+
+<footer>
+© 2026 | Suministro y Transporte de Agua
+<br>
+Chimalhuacán · Nezahualcóyotl · Iztacalco · Los Reyes · San Vicente Chicoloapan
+</footer>
+
+<a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="whatsapp" aria-label="Contactar por WhatsApp">💬</a>
+
+<script>
+const telefono = "521XXXXXXXXXX";
+
+const tipo = document.getElementById("tipo");
+const zona = document.getElementById("zona");
+const litros = document.getElementById("litros");
+const serviceInfo = document.getElementById("serviceInfo");
+const pricePreview = document.getElementById("pricePreview");
+
+function actualizarInformacion() {
+    const servicio = tipo.value;
+
+    serviceInfo.style.display = "none";
+    serviceInfo.innerHTML = "";
+
+    if (!servicio) return;
+
+    const mensajes = {
+        "Casa habitación":
+            "<strong>Servicio para casa habitación:</strong> puedes consultar la tarifa base de tu zona. Para Chimalhuacán y Nezahualcóyotl mostramos el precio directamente; otras zonas se revisan según ubicación y disponibilidad.",
+
+        "Purificadora":
+            "<strong>Purificadoras:</strong> manejamos precio especial. La cotización se trata directamente considerando ubicación, volumen, frecuencia de compra y facilidad de descarga. Si eres una purificadora nueva, podemos orientarte sobre nuestra dinámica de suministro y revisar contigo las condiciones del servicio.",
+
+        "Lavandería":
+            "<strong>Lavanderías:</strong> podemos revisar un suministro puntual o recurrente. La cotización puede ajustarse de acuerdo con volumen, ubicación y frecuencia.",
+
+        "Hotel":
+            "<strong>Hoteles:</strong> podemos atender necesidades puntuales o recurrentes. Para volúmenes frecuentes se realiza una cotización personalizada.",
+
+        "Empresa":
+            "<strong>Empresas:</strong> podemos revisar suministro puntual o recurrente de acuerdo con consumo, ubicación y necesidades de operación.",
+
+        "Obra / construcción":
+            "<strong>Obras:</strong> contamos con suministro recurrente y opciones de renta mediante trato directo. Se revisan consumo, ubicación, frecuencia, logística y operación de las unidades.",
+
+        "Desabasto de agua":
+            "<strong>Desabasto:</strong> podemos revisar servicios puntuales o suministro recurrente. La disponibilidad y cotización se determinan directamente según consumo, ubicación y programación.",
+
+        "Edificio / departamentos":
+            "<strong>Edificios y departamentos:</strong> podemos atender desde un servicio puntual hasta necesidades recurrentes. La cotización depende de zona, volumen y frecuencia.",
+
+        "Otro":
+            "<strong>Servicio personalizado:</strong> cuéntanos qué necesitas y revisaremos la mejor opción disponible."
+    };
+
+    serviceInfo.innerHTML = mensajes[servicio] || "";
+    serviceInfo.style.display = "block";
+
+    calcularPrecio();
+}
+
+function calcularPrecio() {
+    pricePreview.style.display = "none";
+    pricePreview.innerHTML = "";
+
+    const servicio = tipo.value;
+    const zonaActual = zona.value;
+    const litrosActuales = Number(litros.value);
+
+    if (!zonaActual || !litrosActuales || litrosActuales < 1) return;
+
+    /*
+     * Tarifas aproximadas:
+     * Chimalhuacán: $230 por cada 1,000 L.
+     * Chimalhuacán: pipa completa 10,000 L ≈ $2,000.
+     * Chimalhuacán: pipa 12,000 L ≈ $2,200.
+     * Nezahualcóyotl: $300 por cada 1,000 L.
+     * Nezahualcóyotl: pipa completa 10,000 L ≈ $2,700.
+     *
+     * Los precios pueden variar por condiciones de entrega.
+     */
+    const precioMil = {
+        "Chimalhuacán": 230,
+        "Nezahualcóyotl": 300
+    };
+
+    const esServicioEspecial =
+        servicio === "Purificadora" ||
+        servicio === "Obra / construcción" ||
+        servicio === "Desabasto de agua" ||
+        servicio === "Empresa" ||
+        servicio === "Hotel" ||
+        servicio === "Lavandería" ||
+        servicio === "Edificio / departamentos";
+
+    if (esServicioEspecial) {
+        pricePreview.innerHTML =
+            "<strong>Cotización personalizada</strong><br>" +
+            "Este servicio se cotiza directamente considerando ubicación, volumen, frecuencia y condiciones de entrega.";
+        pricePreview.style.display = "block";
+        return;
+    }
+
+    if (precioMil[zonaActual]) {
+        let total = (litrosActuales / 1000) * precioMil[zonaActual];
+        let nota = "Referencia calculada a partir de la tarifa aproximada por 1,000 litros.";
+
+        // Precios aproximados por pipa completa en Chimalhuacán.
+        if (zonaActual === "Chimalhuacán" && litrosActuales === 10000) {
+            total = 2000;
+            nota = "Precio aproximado especial por pipa completa de 10,000 litros.";
+        }
+
+        if (zonaActual === "Chimalhuacán" && litrosActuales === 12000) {
+            total = 2200;
+            nota = "Precio aproximado especial por pipa de 12,000 litros.";
+        }
+
+        // Precio aproximado por pipa completa en Nezahualcóyotl.
+        if (zonaActual === "Nezahualcóyotl" && litrosActuales === 10000) {
+            total = 2700;
+            nota = "Precio aproximado especial por pipa completa de 10,000 litros.";
+        }
+
+        // Si la cantidad es mayor a 12,000 L, la página da referencia
+        // pero avisa que requiere coordinación de unidades.
+        if (litrosActuales > 12000) {
+            nota = "Referencia aproximada. Para cantidades superiores a 12,000 litros se requiere coordinar disponibilidad de unidades.";
+        }
+
+        pricePreview.innerHTML =
+            "<div>Referencia para <strong>" +
+            litrosActuales.toLocaleString("es-MX") +
+            " litros</strong>:</div>" +
+            "<div class='total'>≈ $" +
+            Math.round(total).toLocaleString("es-MX") +
+            "</div>" +
+            "<div>" + nota + "</div>" +
+            "<br><small>El precio final puede variar según la ubicación y las condiciones de entrega.</small>";
+
+        // Aviso especial para 10,000 L pedidos cuando hay unidad de 12,000 L.
+        if (litrosActuales === 10000) {
+            pricePreview.innerHTML +=
+                "<br><br><strong>🚛 Disponibilidad:</strong> si la unidad disponible es de 12,000 litros, puedes recibir los 10,000 litros solicitados sin necesidad de contratar los 12,000 litros.";
+        }
+
+        // Costos adicionales por condiciones de entrega.
+        pricePreview.innerHTML +=
+            "<br><br><strong>⚠️ Consideraciones:</strong> si el suministro requiere motobomba, por ejemplo para subir agua a una azotea o realizar una descarga especial, el costo puede aumentar aproximadamente entre $20 y $30 por cada 1,000 litros. La tarifa final se confirma al revisar la ubicación.";
+
+        pricePreview.style.display = "block";
+    } else {
+        pricePreview.innerHTML =
+            "<strong>Cotización personalizada</strong><br>" +
+            "Para esta zona necesitamos revisar ubicación, disponibilidad y condiciones de entrega directamente.";
+        pricePreview.style.display = "block";
+    }
+}
+
+tipo.addEventListener("change", actualizarInformacion);
+zona.addEventListener("change", calcularPrecio);
+litros.addEventListener("change", calcularPrecio);
+
+document.getElementById("quoteForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const zonaSeleccionada = zona.value;
+    const servicio = tipo.value;
+    const cantidad = litros.value;
+    const frecuencia = document.getElementById("frecuencia").value;
+    const mensaje = document.getElementById("mensaje").value;
+
+    const texto =
+        "Hola, me gustaría solicitar información sobre un servicio de agua.%0A%0A" +
+        "👤 Nombre: " + encodeURIComponent(nombre) + "%0A" +
+        "📍 Zona: " + encodeURIComponent(zonaSeleccionada) + "%0A" +
+        "💧 Uso del agua: " + encodeURIComponent(servicio) + "%0A" +
+        "🚛 Cantidad: " + encodeURIComponent(cantidad) + "%0A" +
+        "🔄 Frecuencia: " + encodeURIComponent(frecuencia) + "%0A" +
+        "📝 Información adicional: " + encodeURIComponent(mensaje);
+
+    const url = "https://wa.me/" + 5534517285 + "?text=" + texto;
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
