@@ -139,7 +139,7 @@ section{padding:70px 20px}
 
 <header>
 <nav>
-<div class="logo">💧 AGUA<span> EXPRESS</span></div>
+<div class="logo">💧 TRANSPORTE<span> SALINAS</span></div>
 <ul>
 <li><a href="#inicio">Inicio</a></li>
 <li><a href="#servicio">Servicio</a></li>
@@ -153,7 +153,7 @@ section{padding:70px 20px}
 
 <section class="hero" id="inicio">
 <div class="hero-content">
-<div class="hero-small">Suministro y transporte de agua</div>
+<div class="hero-small">Suministro y transporte de agua Salinas</div>
 <h1>Agua de suministro, <span>directo hasta donde la necesitas.</span></h1>
 <p>Servicio de transporte de agua en pipas para hogares, empresas, purificadoras, hoteles, lavanderías, edificios y obras.</p>
 <div class="buttons">
